@@ -1,42 +1,48 @@
-<h2>Sign up</h2>
+<section class="vh-100">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname, autofocus: true%>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
-        <%= f.collection_select(:career_id, Career.all, :id, :field, :prompt => 'Select your title', class:"") %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+                <div class="form-outline mb-4">
+                  <%= f.text_field :email, autofocus: true, class:"form-control w-100 form-control-lg", placeholder:"email"%>
+                </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+                <div class="form-outline mb-4">
+                 <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br>
+                   <%= f.password_field :password, autofocus: true, class:"form-control w-100 form-control-lg", placeholder:"Password", autocomplete: "new-password"%>
+                </div>
 
-<%= render "devise/shared/links" %>
+                <div class="form-outline mb-4">
+                  <%= f.password_field :password_confirmation, class:"form-control w-100 form-control-lg", autocomplete: "new-password", placeholder:"Confirm your password" %>
+                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <%= f.collection_select(:career_id, Career.all, :id, :field, :prompt => 'Select your career', class:"form-control w-100 form-control-lg") %>
+                </div>
+
+               
+                <div class="d-flex justify-content-center">
+                  <%= f.submit "Sign up", class:"btn btn-colour-1 w-100" %>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <%= link_to "Login here", new_user_session_path, class:"fw-body text-body" %> </p>
+
+              <%end%>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

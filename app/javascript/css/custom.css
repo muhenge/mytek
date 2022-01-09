@@ -1,54 +1,110 @@
-.nav-link {
-    color: #004E64 !important;
-}
-
-.nav-link:hover,
-.nav-link:active,
-.nav-link:focus {
-    color: #004E64 !important;
-    font-weight: bold;
-}
-
-.btn-outline {
-    color: #3cc380 !important;
-    background-color: #ffffff;
-    border-color: #3cc380;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-}
-
-.btn-outline {
-    color: #3cc380 !important;
-    background-color: #ffffff;
-    border-color: #3cc380;
-    font-weight: bold;
-    border-radius: 0;
-}
-
-.btn-outline:hover,
-.btn-outline:active,
-.btn-outline:focus,
-.btn-outline.active {
-    background: #2a8959 !important;
-    color: #ffffff;
-    border-color: #2a8959;
-}
-
-.btn-colour-1 {
-    color: #fff;
-    background-color: #004E64 !important;
-    border-color: #004E64;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-    border-radius: 0;
-}
-
-.btn-colour-1:hover,
-.btn-colour-1:active,
-.btn-colour-1:focus,
-.btn-colour-1.active {
-    /* let's darken #004E64 a bit for hover effect */
-    background: #003D4F !important;
-    color: #ffffff;
-    border-color: #003D4F;
-}
+    .nav-link {
+        color: #004E64 !important;
+    }
+    
+    .nav-link:hover,
+    .nav-link:active,
+    .nav-link:focus {
+        color: #004E64 !important;
+        font-weight: bold;
+    }
+    
+    .btn-outline {
+        color: #3cc380 !important;
+        background-color: #ffffff;
+        border-color: #3cc380;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+    }
+    
+    .btn-outline {
+        color: #3cc380 !important;
+        background-color: #ffffff;
+        border-color: #3cc380;
+        font-weight: bold;
+        border-radius: 0;
+    }
+    
+    .btn-outline:hover,
+    .btn-outline:active,
+    .btn-outline:focus,
+    .btn-outline.active {
+        background: #2a8959 !important;
+        color: #ffffff;
+        border-color: #2a8959;
+    }
+    
+    .btn-colour-1 {
+        color: #fff;
+        background-color: #004E64 !important;
+        border-color: #004E64;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        border-radius: 0;
+    }
+    
+    .btn-colour-1:hover,
+    .btn-colour-1:active,
+    .btn-colour-1:focus,
+    .btn-colour-1.active {
+        /* let's darken #004E64 a bit for hover effect */
+        background: #003D4F !important;
+        color: #ffffff;
+        border-color: #003D4F;
+    }
+    
+    .gradient-custom-3 {
+        /* fallback for old browsers */
+        background: #ebeff9;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(98, 133, 250, 0.5), rgba(20, 108, 241, 0.5));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(98, 133, 250, 0.5), rgba(20, 108, 241, 0.5))
+    }
+    
+    .gradient-custom-4 {
+        /* fallback for old browsers */
+        background: #84fab0;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }
+    
+    .form-control {
+        border-radius: 0;
+    }
+    
+    .form-control:focus {
+        box-shadow: none !important;
+        border-color: #004E64;
+    }
+    
+    textarea:focus,
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="datetime"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="date"]:focus,
+    input[type="month"]:focus,
+    input[type="time"]:focus,
+    input[type="week"]:focus,
+    input[type="number"]:focus,
+    input[type="email"]:focus,
+    input[type="url"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    input[type="color"]:focus,
+    .uneditable-input:focus {
+        border-color: #004E64;
+        box-shadow: 0!important;
+        outline: 0 none;
+    }
+    
+    select {
+        border-radius: 0;
+        box-shadow: none;
+        border-color: #004E64;
+        padding: 10px;
+        width: 100%;
+    }

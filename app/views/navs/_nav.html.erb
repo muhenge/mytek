@@ -17,12 +17,12 @@
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+            <%= link_to "Logout", destroy_user_session_path, class:"dropdown-item" %>
+        </ul>
      <% else %>
-    <%= link_to "Sign in", new_user_session_path, class:"nav-link" %>
+        <%= link_to "Sign in", new_user_session_path, class:"nav-link" %>
        <%= link_to "Get started", new_user_registration_path, class:"btn btn-colour-1" %>
-       
+
      <% end %>
         
       </form>
