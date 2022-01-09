@@ -29,7 +29,7 @@
                 <div class="d-flex justify-content-center">
                   <%= f.submit "Log in", class:"btn btn-colour-1 w-100" %>
                 </div>
-
+                <p class="text-center text-muted mt-5 mb-0"> Not registered yet? <%= link_to "Sign up here", new_user_registration_path, class:"fw-body text-body" %> </p>
                 <div class="d-flex justify-content-center">
                   <a href="<%= new_user_password_path %>" class="btn btn-link">Forgot your password?</a>
               <%end%>
