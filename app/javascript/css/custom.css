@@ -108,3 +108,8 @@
         padding: 10px;
         width: 100%;
     }
+    
+    .link-complete {
+        text-decoration: none;
+        color: #004E64;
+    }

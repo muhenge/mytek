@@ -1,1 +1,13 @@
-Welcome <%= current_user.username %> continue by finishing up your profile <%= link_to 'Edit', edit_user_registration_path %>
+
+<div class="container">
+  <div class="row">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <div class="">
+        <span class="display-1 text-muted">Welcome</span>
+      </div>
+      <div class="display-6">
+        <%= link_to 'Click here to complete your profile', edit_user_registration_path, class:"link-complete" %>
+      </div>
+    </div>
+  </div>
+</div>
