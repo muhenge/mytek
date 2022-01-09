@@ -1,0 +1,54 @@
+.nav-link {
+    color: #004E64 !important;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link:focus {
+    color: #004E64 !important;
+    font-weight: bold;
+}
+
+.btn-outline {
+    color: #3cc380 !important;
+    background-color: #ffffff;
+    border-color: #3cc380;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.btn-outline {
+    color: #3cc380 !important;
+    background-color: #ffffff;
+    border-color: #3cc380;
+    font-weight: bold;
+    border-radius: 0;
+}
+
+.btn-outline:hover,
+.btn-outline:active,
+.btn-outline:focus,
+.btn-outline.active {
+    background: #2a8959 !important;
+    color: #ffffff;
+    border-color: #2a8959;
+}
+
+.btn-colour-1 {
+    color: #fff;
+    background-color: #004E64 !important;
+    border-color: #004E64;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    border-radius: 0;
+}
+
+.btn-colour-1:hover,
+.btn-colour-1:active,
+.btn-colour-1:focus,
+.btn-colour-1.active {
+    /* let's darken #004E64 a bit for hover effect */
+    background: #003D4F !important;
+    color: #ffffff;
+    border-color: #003D4F;
+}
