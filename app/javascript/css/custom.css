@@ -43,6 +43,25 @@
         border-radius: 0;
     }
     
+    .btn-colour-danger {
+        color: #fff;
+        background-color: #640700 !important;
+        border-color: #640700;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        border-radius: 0;
+    }
+    
+    .btn-colour-danger:active,
+    .btn-colour-danger:hover,
+    .btn-colour-danger:focus,
+    .btn-colour-danger.active {
+        /* let's darken #004E64 a bit for hover effect */
+        background: #580404 !important;
+        color: #ffffff;
+        border-color: #580404;
+    }
+    
     .btn-colour-1:hover,
     .btn-colour-1:active,
     .btn-colour-1:focus,
