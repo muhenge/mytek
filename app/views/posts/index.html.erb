@@ -174,27 +174,34 @@
                             <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
                         </div>
                     </div>
-                    <div class="p-5 px-3"><span><%= post.content %></span></div>
-                    <div class="d-flex align-items-center p-2 border-top">
-                      <div class="">
+                    <div class="p-5 px-3">
+                      <p><%= post.content %></p>
+                      <span>
                         <%= link_to like_post_path(post),class:"like-btn", method: :put, remote: :true do%>
                                 <span><i class="fas fa-thumbs-up"></i></span>
-                                
+                                <span class="badge btn-colour-1"><%= post.get_upvotes.size %></span>
                         <% end %>
-                        <span class="likes-count"><%= post.get_upvotes.size %></span>
-                      </div>
-                      <div class="">
-                        <%= link_to posts_path(post),class:"comment-btn", method: :put, remote: :true do%>
-                                <span><i class="fas fa-comment-alt"></i></span>
-                                
-                        <% end %>
-                        <%= post_comments_path(post,@comments_new).inspect %>
-                        <span class="likes-count"><%= post.comments.size %></span>
-                        <%= form_with(model: [post, @comments_new], local: true) do |f|%>
-                            <%= f.text_area :text, placeholder: "Comment here", class:"w-100 text" %>
+                        
+                      </span>
+                    </div>
+                      
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingOne">
+                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fas fa-comment-alt"></i>
+                              <span class="mx-2">Comments</span> <span class="badge btn-colour-1"><%= post.comments.size %></span>
+                          </button>
+                          </h2>
+                          <div id="collapseOne" class="accordion-collapse collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body w-100">
+                            
+                              <%= form_with(model: [post, @comments_new], local: true) do |f|%>
+                              <%= f.text_area :text, placeholder: "Comment here", class:"w-100 text" %>
                            
-                            <%= f.submit "Comment", class:"btn btn-primary btn-sm" %>
+                            <%= f.submit "Comment", class:"btn-colour-1" %>
                         <%end%>
+              </div>
+                        
                       </div>
                     </div>
                 </div>
@@ -206,44 +213,61 @@
     <%end%>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <div class="container">
+         <% current_user.following.each do |followed| %>
+          <% followed.posts.most_recent.each do |post| %>
+       <div class="container">
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
             <div class="feed p-2">
-                <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white border">
-                    <div class="feed-text px-2">
-                        <h6 class="text-black-50 mt-2">What's on your mind</h6>
-                    </div>
-                    <div class="feed-icon px-2"><i class="fa fa-long-arrow-up text-black-50"></i></div>
-                </div>
                 <div class="bg-white border mt-2">
                     <div>
                         <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
-                            <div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle" src="https://i.imgur.com/aoKusnD.jpg" width="45">
-                                <div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold">Thomson ben</span><span class="text-black-50 time">40 minutes ago</span></div>
+                        <%= link_to post_user_path(post, post.user), :action => 'go' do %>
+                            <div class="d-flex flex-row align-items-center feed-text px-2"><%= image_tag user_avatar(post.user), class:"border rounded-circle", width:"45"%>
+                                <div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold text-muted"><%= post.user.username.capitalize %></span><span class="text-black-50 time">40 minutes ago</span></div>
                             </div>
+                        <%end%>
                             <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
                         </div>
                     </div>
-                    <div class="p-2 px-3"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></div>
-                    <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
-                </div>
-                <div class="bg-white border mt-2">
-                    <div>
-                        <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
-                            <div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle" src="https://i.imgur.com/aoKusnD.jpg" width="45">
-                                <div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold">Thomson ben</span><span class="text-black-50 time">40 minutes ago</span></div>
-                            </div>
-                            <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
-                        </div>
+                    <div class="p-5 px-3">
+                      <p><%= post.content %></p>
+                      <span>
+                        <%= link_to like_post_path(post),class:"like-btn", method: :put, remote: :true do%>
+                                <span><i class="fas fa-thumbs-up"></i></span>
+                                <span class="badge btn-colour-1"><%= post.get_upvotes.size %></span>
+                        <% end %>
+                        
+                      </span>
                     </div>
-                    <div class="feed-image p-2 px-3"><img class="img-fluid img-responsive" src="https://i.imgur.com/aoKusnD.jpg"></div>
-                    <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
+                      
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingOne">
+                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fas fa-comment-alt"></i>
+                              <span class="mx-2">Comments</span> <span class="badge btn-colour-1"><%= post.comments.size %></span>
+                          </button>
+                          </h2>
+                          <div id="collapseOne" class="accordion-collapse collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body w-100">
+                            
+                              <%= form_with(model: [post, @comments_new], local: true) do |f|%>
+                              <%= f.text_area :text, placeholder: "Comment here", class:"w-100 text" %>
+                           
+                            <%= f.submit "Comment", class:"btn-colour-1" %>
+                        <%end%>
+              </div>
+                        
+                      </div>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </div>
     </div>
+    <%end%>
+    <%end%>
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
 </div>
