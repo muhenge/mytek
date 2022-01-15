@@ -34,8 +34,16 @@ class PostsController < ApplicationController
   def vote
     if !current_user.liked? @post
       @post.liked_by current_user
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js { render layout: false }
+      end
     elsif current_user.liked? @post
       @post.unliked_by current_user
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js { render layout: false }
+      end
     end
   end
 
