@@ -372,6 +372,10 @@ accordion-button:not(.collapsed)::after {
     color: #004e64;
 }
 
+.comment-bg-color {
+    background-color: #f2f2f2;
+}
+
 
 /* .fa-comment-alt {
     color: #004e64;

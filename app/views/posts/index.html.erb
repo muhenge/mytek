@@ -1,4 +1,5 @@
 
+
 <div class="container">
   <!-- Button trigger modal -->
 
@@ -48,7 +49,7 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <% @career_post.each do |post| %>
+    <% @posts.each do |post| %>
        <div class="container">
     <div class="d-flex justify-content-center row">
         <div class="col-md-8">
@@ -86,12 +87,32 @@
                             <div class="accordion-body w-100">
                             
                               <%= form_with(model: [post, @comments_new], local: true) do |f|%>
-                              <%= f.text_area :text, placeholder: "Comment here", class:"w-100 text" %>
+                              <%= f.text_area :text, placeholder: "Add a comment", class:"w-100 text" %>
                            
-                            <%= f.submit "Comment", class:"btn-colour-1" %>
+                            <%= f.submit "Comment", class:"btn btn-colour-1" %>
+                            
                         <%end%>
+                        <div class="pt-2 p-3">
+                          <% post.comments.each do |c| %>
+                            <div class="d-flex flex-row align-items-start p-2">
+                            <div class="">
+                           
+                            <%= link_to post_user_path(post, post.user), :action => 'go' do %>
+                              <%= image_tag user_avatar(post.user), class:"border rounded-circle", width:"45"%>
+                            </div>
+                          <%end%>
+                            
+                            </div>
+                            <div class="py-2">
+                              <p class="text-dark p-3 comment-bg-color">
+                                <%= c.text %>
+                              </p>
+                              </div>
+                            </div>
+                          <%end%>
+                        </div>
               </div>
-                        
+             
                       </div>
                     </div>
                 </div>

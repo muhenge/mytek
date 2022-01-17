@@ -8,4 +8,3 @@ class Post < ApplicationRecord
   scope :most_recent, -> { order(created_at: :desc) }
   
 end
-public#indexpublic#index
