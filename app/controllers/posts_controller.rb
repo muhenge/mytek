@@ -3,8 +3,9 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :show, :destory, :vote]
   respond_to :js, :json, :html
   def index
-    @posts = Post.all.includes(:user, :comments, :likes, :career)
-
+    
+    @posts = Post.all.includes(:user, :comments, :likes, :career, :following).most_recent
+    @posts_career = Post.all.includes(:career).most_recent
     @user_posts = current_user.posts.most_recent
     @career_post = current_user.career.posts
     @comments = current_user.comments.most_recent
