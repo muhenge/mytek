@@ -92,23 +92,22 @@
                             <%= f.submit "Comment", class:"btn btn-colour-1" %>
                             
                         <%end%>
-                        <div class="pt-2 p-3">
+                        <div class="p-3">
                           <% post.comments.limit(5).each do |c| %>
                             <div class="d-flex flex-row align-items-start p-2">
-                            <div class="">
-                           
-                            <%= link_to post_user_path(post, post.user), :action => 'go' do %>
-                              <%= image_tag user_avatar(post.user), class:"border rounded-circle", width:"45"%>
-                            </div>
-                          <%end%>
-                            
-                            </div>
-                            <div class="py-2">
+                              <div class="">
+                              <%= link_to post_user_path(post, post.user), :action => 'go' do %>
+                                <%= image_tag user_avatar(post.user), class:"border rounded-circle", width:"45"%>
+                              
+                            <%end%>
+                              </div>
+                              <div class="">
                               <p class="text-dark p-3 comment-bg-color">
-                                <%= c.text %>
-                              </p>
+                              <%= c.text %>
+                            </p>
                               </div>
                             </div>
+                           
                           <%end%>
                         </div>
               </div>
