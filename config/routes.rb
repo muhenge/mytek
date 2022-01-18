@@ -26,6 +26,11 @@ Rails.application.routes.draw do
       put "like" => "posts#vote"
     end
   end
+
+  resources :relationships, only: [:create, :destroy] do
+    resources :users
+    resources :posts
+  end
   
   root :to => "welcome#home"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
