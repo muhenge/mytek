@@ -1,5 +1,4 @@
-
-
+<%= render partial: "navs/nav" %>
 <div class="container">
   <!-- Button trigger modal -->
 
@@ -111,8 +110,14 @@
                             </div>
                            
                           <%end%>
+                          <div class="text-center">
+                          <%= link_to post_path(post), class:"text-secondary" do %>
+                            <i class="fas fa-comment-alt"></i>
+                            <span class="">View post and all comments</span>
+                          <% end %>
+                          </div>
                         </div>
-              </div>
+                      </div>
              
                       </div>
                     </div>

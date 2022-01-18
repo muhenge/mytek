@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers:{ registrations: 'registrations' } do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  resources :users, only: %i[show index] do 
+  resources :users, only: [:show], param: :slug
+  resources :users, only: %i[show index], param: :slug do 
     resources :posts
   end
   resources :comments do 
