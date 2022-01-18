@@ -188,7 +188,11 @@
       <div class="col-lg-4">
         <div class="card mb-4">
           <div class="card-body text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            <% if @user == current_user %>
+              <%= image_tag user_avatar(current_user), class:"rounded-circle img-fluid", width:"150px"%>
+          <% else %>
+            <%= image_tag user_avatar(@user), class:"rounded-circle img-fluid", width:"150px"%>
+          <% end %>
             <h5 class="my-3">John Smith</h5>
             <p class="text-muted mb-1">Full Stack Developer</p>
             <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
