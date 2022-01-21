@@ -32,6 +32,16 @@
                   <%= f.submit "Update your profile", class:"btn btn-colour-1 w-100" %>
         </div>
       <%end%>
+    
+      <%= form_with url: user_skills_path(current_user), local: true do |f| %>
+        <%= f.text_field :name, placeholder:"Add new skills" %><br><br>
+                  <%= f.number_field :level, placeholder:"Add skill level", min: 0, max: 100 %><br><br>
+                  <%= button_tag( :class => "btn btn-primary w-100") do %>
+          <i class="fas fa-plus"></i> Add a skill
+        <% end %>
+      <%end%>
+                <br>
+  </div>  
       <div class="mt-5">
         <h3>Cancel my account</h3>
         <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn-colour-danger" %></p>

@@ -16,18 +16,16 @@
 									<h4><%= @user.firstname.capitalize %> <%=@user.lastname.capitalize%></h4>
                     <h6 class="text-center text-muted"><%= @user.username.capitalize %></h6>
 									<p class="text-secondary mb-1"><%= @user.career.field %></p>
-									
-                                    <% if @user == current_user %>
-                  
-                                        <% else %>
-                                            <div class="profile-message-btn center-block text-center">
-                                             <% if current_user && current_user.following?(@user) %>
-                                                <%= render 'unfollow' %>
-                                                <% else %>
-                                                <%= render 'follow' %>
-                                            <% end %>
+                        <% if @user == current_user %>
+                              <% else %>
+                                  <div class="profile-message-btn center-block text-center">
+                                      <% if current_user && current_user.following?(@user) %>
+                                          <%= render 'unfollow' %>
+                                      <% else %>
+                                          <%= render 'follow' %>
+                                      <% end %>
                                         </div>
-                                        <% end %>
+                                    <% end %>
 								</div>
 							</div>
 							<hr class="my-4">
@@ -70,9 +68,7 @@
                          </div>
                         </div> 
 						</div>
-                        
 					</div>
-                    
                 </div>
 					<div class="row">
 						<div class="col-sm-12">
@@ -104,72 +100,13 @@
 						</div>
 					</div>
 					<div class="row">
-					<div class="col-sm-12">
-							  
-					<ul class="nav nav-tabs" role="tablist">
-					<li class="nav-link active" role="presentation"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">
-					<% if @user == current_user %>
-						My posts
-					<% else %>
-						 <%= @user.username.capitalize %>'s posts
-					<% end %>
-					
-					</a></li>
-					<li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">
-					<% if @user == current_user %>
-						People connected
-					<% else %>
-					 Connected to <%= @user.username.capitalize %>
-					<% end %>
-					
-					</a></li>
-					<li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3"><% if @user == current_user %>
-						Connected to
-					<% else %>
-					 <%= @user.username.capitalize %> connections
-					<% end %></a></li>
-			</ul>
-			<div class="tab-content">
-					<div class="tab-pane active" role="tabpanel" id="tab-1">
-							<p class="p-3">
-							<% @user_posts.each do |posts| %>
-									<%= link_to simple_format(posts.content.capitalize.truncate(50)), user_post_path(@user, posts) %>
-									<hr>
-							<%end%>
-							</p>
-					</div>
-					<div class="tab-pane" role="tabpanel" id="tab-2">
-							<p class="p-3">
-									<% if @user.followers.empty? %>
-										No connection
-									<%else%>
-											<% @user.followers.each do |followers| %>
-											<div class="d-inline">
-													<%= link_to  relationship_user_path(@user.followers, followers), :action => 'go' do %>
-															<%= image_tag user_avatar(followers), class:"border rounded-circle img-profile",data: {toggle: "tooltip", placement: "left", html:"true" }, title: "Visit #{followers.username.capitalize} profile"%>
-													<%end%>
-													
-											</div>
-											<%end%>
-									<% end %>
-							</p>
-					</div>
-					<div class="tab-pane" role="tabpanel" id="tab-3">
-							<p class="p-3"><% if @user.following.empty? %>
-										No connection
-									<% else %>
-											<% @user.following.each do |followed| %>
-											<div class="d-inline">
-											 <%= link_to  relationship_user_path(@user.following, followed), :action => 'go' do %>
-													<%= image_tag user_avatar(followed), class:"border rounded-circle img-profile"%>
-											 <%end%>
-													
-											</div>
-											<%end%>
-									<% end %></p>
-					</div>
-			</div>
-			</div>
+					  <div class="col-sm-12">
+              
+            </div>
+            </div>
+          
+			      </div>
+						</div>
 					</div>
 			
 		
