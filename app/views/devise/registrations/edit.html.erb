@@ -32,6 +32,11 @@
                   <%= f.submit "Update your profile", class:"btn btn-colour-1 w-100" %>
         </div>
       <%end%>
+
+      <% current_user.skills.each do |s| %>
+        <%= s.name %>
+        <%= s.level %>
+      <%end%>
     
       <%= form_with url: user_skills_path(current_user), local: true do |f| %>
         <%= f.text_field :name, placeholder:"Add new skills" %><br><br>
