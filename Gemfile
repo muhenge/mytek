@@ -58,6 +58,7 @@ gem 'omniauth-gitlab'
 gem 'omniauth-rails_csrf_protection'
 gem 'trix'
 gem 'friendly_id', '~> 5.4.0'
+gem 'public_suffix'
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
