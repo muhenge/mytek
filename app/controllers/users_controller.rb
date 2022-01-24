@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.friendly.find(params[:id])
+    #@user = User.friendly.find(params[:id])
+    @user = params[:id] ? User.friendly.find(params[:id]) : current_user
     @skill = Skill.new
     @user_skills = @user.skills
     @user_posts = @user.posts.most_recent.limit(5)

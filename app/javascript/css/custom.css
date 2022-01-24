@@ -7,6 +7,7 @@
 .nav-link:focus {
     color: #004e64 !important;
     font-weight: bold;
+
 }
 
 .btn-outline {
@@ -17,7 +18,7 @@
     letter-spacing: 0.05em;
 }
 
-.btn-outline {
+.btn-outline-2 {
     color: #3cc380 !important;
     background-color: #ffffff;
     border-color: #3cc380;

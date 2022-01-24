@@ -18,10 +18,10 @@ class RegistrationsController < Devise::RegistrationsController
     resource.update_without_password(account_update_params)
   end
 
-  # def after_update_path_for(resource)
-  #   #redirect_to [current_account, resource]
-  #   welcome_home_path
-  # end
+  def after_update_path_for(resource)
+    #redirect_to [current_account, resource]
+    user_path(current_user)
+  end
 
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, except: [:current_password, :password])
