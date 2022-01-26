@@ -15,7 +15,8 @@ class PostsController < ApplicationController
   end
 
   def show
-   
+   @post_comments = @post.comments.includes(:user).most_recent
+
   end
 
   def create
