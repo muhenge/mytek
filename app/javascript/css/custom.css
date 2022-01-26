@@ -1,3 +1,6 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+}
 .nav-link {
     color: #004e64 !important;
 }

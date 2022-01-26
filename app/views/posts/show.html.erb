@@ -1,25 +1,35 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-md-8">
-            <h1>
+        
+        <div class="col-md-8 pt-5">
+        <div class="d-flex align-items-center justify-content-between border-bottom py-3">
+            <div class="">
+            <%= link_to user_path(@post.user), :action => 'go' do  %>
+                <%= image_tag user_avatar(@post.user), class:"img-responsive rounded-circle border shadow",width:"45"%>
+            <%end%>
+             </div>
+            <span class="text-muted">Posted: <%= @post.created_at.strftime("%B %Y") %></span>
+        </div>
+        <h1>
                 <%= @post.title %>
             </h1>
-            <p class="">
-                <%= @post.content %>
+            <p class="pt-5">
+                <%= @post.content.capitalize %>
             </p>
-            <div><%= @post.created_at.strftime("%B %Y") %></div>
+           
         </div>
-        <div class="col-md-4 p-5 border-start">
+        <div class="col-md-4 pt-5 border-start">
             <%@post_comments.each do |comment|%>
-                <div class="comment-widgets m-b-20 p-5">
-                    <div class="d-flex flex-row comment-row">
-                        <div class="p-2"><span class="round"><%= link_to user_path(comment.user), :action => 'go' do  %>
-                            <%= image_tag user_avatar(comment.user), class:"img-responsive rounded-circle border shadow",width:"45"%>
-                        <%end%></span></div>
+                <div class="comment-widgets m-b-20">
+                    <div class="d-flex justify-content-between comment-row">
+                        <div class="">
+                            <%= link_to user_path(comment.user), :action => 'go' do  %>
+                                <%= image_tag user_avatar(comment.user), class:"img-responsive rounded-circle border shadow",width:"45"%>
+                            <%end%>
+                        </div>
                         <div class="comment-text w-100">
-                            
                             <div class="comment-footer"> <span class="text-muted"><%= comment.created_at.strftime("%B %Y") %></span> </div>
-                            <p class="m-b-5 m-t-10"><%= comment.text.capitalize  %></p>
+                            <p class="font-medium"><%= comment.text.capitalize  %></p>
                         </div>
                     </div>
                     </div>
