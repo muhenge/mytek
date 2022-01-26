@@ -1,2 +1,30 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>
+                <%= @post.title %>
+            </h1>
+            <p class="">
+                <%= @post.content %>
+            </p>
+            <div><%= @post.created_at.strftime("%B %Y") %></div>
+        </div>
+        <div class="col-md-6">
+            <%@post_comments.each do |comment|%>
+                <div class="comment-widgets m-b-20">
+                    <div class="d-flex flex-row comment-row">
+                        <div class="p-2"><span class="round"></span></div>
+                        <div class="comment-text w-100">
+                            <h5>Samso Nagaro</h5>
+                            <div class="comment-footer"> <span class="date">April 14, 2019</span> <span class="label label-info">Pending</span> <span class="action-icons"> <a href="#" data-abc="true"><i class="fa fa-pencil"></i></a> <a href="#" data-abc="true"><i class="fa fa-rotate-right"></i></a> <a href="#" data-abc="true"><i class="fa fa-heart"></i></a> </span> </div>
+                            <p class="m-b-5 m-t-10">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+                        </div>
+                    </div>
+                    </div>
+            <%end%>
+        </div>
+    </div>
+</div>
+
+
+

@@ -32,14 +32,18 @@
                                     <% end %>
 								</div>
 								<div class="mt-3 text-muted">
-									member since <%= @user.created_at.strftime("%B %Y") %>
+									
 								</div>
 							</div>
 							<hr class="my-4">
 							<div class="">
-							<h5 class="d-flex justify-content-center align-items-center mb-3">About Me</h5>
-							<p><%=@user.about.capitalize%></p
+							<h5 class="">About Me</h5>
+							<p><%= @user.about.capitalize %></p
 							</div>
+							
+							</div>
+							<div class="text-muted text-center">
+								member since <%= @user.created_at.strftime("%B %Y") %>
 							</div>
 						</div>
 					</div>
