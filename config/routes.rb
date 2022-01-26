@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get 'relationships/create'
+  get 'relationships/destroy'
   get 'transit/home'
   devise_for :users, controllers:{ registrations: 'registrations' } do
     get '/users/sign_out' => 'devise/sessions#destroy'
