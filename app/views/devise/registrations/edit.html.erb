@@ -18,7 +18,7 @@
                 <div class="row mt-3">
                     <div class="col-md-12 my-2"><%= f.text_field :username, autofocus: true,class:"form-control", placeholder:"Username" %></div>
                     <div class="col-md-12 my-2"><%= f.text_area :bio, autofocus: true, autocomplete: "Bio", class:"form-control", placeholder:"Bio" %></div>
-                    <div class="col-md-12 my-2"><%= f.text_area :about, autofocus: true, autocomplete: "About", class:"form-control", placeholder:"Bio" %></div>
+                    <div class="col-md-12 my-2"><%= f.text_area :about, autofocus: true, autocomplete: "About", class:"form-control", placeholder:"About" %></div>
                     <div class="col-md-12 my-2"> <%= f.collection_select(:career_id, Career.all, :id, :field, :prompt => 'Select your title', class:"form-control") %></div>
                  
                 </div>
