@@ -97,7 +97,7 @@
                           <% post.comments.limit(5).most_recent.each do |c| %>
                             <div class="d-flex flex-row align-items-start p-2">
                               <div class="">
-                              <%= link_to post_user_path(post, post.user), :action => 'go' do %>
+                              <%= link_to comment_user_path(c, c.user), :action => 'go' do %>
                                 <%= image_tag user_avatar(post.user), class:"border rounded-circle", width:"45"%>
                               
                             <%end%>
