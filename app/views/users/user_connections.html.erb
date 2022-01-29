@@ -12,27 +12,14 @@
 
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <div class="d-flex justify-content-center my-3">
-    <div class="list-group contact-group">
-    <a href="#" class="list-group-item">
-        <div class="media">
-            <div class="pull-left">
-                <img class="img-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">John Doe <small>Software Engineer at Facebook, Inc.</small></h4>
-                <div class="media-content">
-                    <i class="fa fa-map-marker"></i> San Francisco, California, United States
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-skype"></i> jdoe.doe</li>
-                        <li><i class="fa fa-mobile"></i> +63 912 212 2451</li>
-                        <li><i class="fa fa-envelope-o"></i> joedoe@email.com</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </a>
-    </div>
+    <div class="d-flex justify-content-center">
+      <% @user_following.each do |following| %>
+      <div class="list-group">
+        <%= link_to user_path(following), class:"list-group-item list-group-item-action" do %>
+          <%= image_tag user_avatar(following), class:"border rounded-circle", width:"45"%>
+        <%end %>
+      </div>
+      <%end%>
     </div>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
