@@ -39,7 +39,8 @@ Rails.application.routes.draw do
     resources :users
     resources :posts
   end
-  
+  get "/:user_slug/connections", to: "users#user_connections", as: "user_connections"
+  get "/current_user_skills", to: "users#current_user_skills"
   root :to => "welcome#home"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

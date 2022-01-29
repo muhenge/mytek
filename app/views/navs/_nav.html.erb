@@ -5,10 +5,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav">
         
       </ul>
-      <form class="d-flex">
      <% if user_signed_in? %>
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -25,7 +24,35 @@
 
      <% end %>
         
-      </form>
     </div>
   </div>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid"> <a class="navbar-brand" href="#">PiciHealth</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"> 
+                          <%= link_to root_path, class:"nav-link", :action=>'go' do %>
+                            <span class="d-flex flex-column align-items-center">
+                              <span><i class="fas fa-home fa-2x"></i></span><span>Home</span>
+                            </span>
+                          <%end%>
+                        </li>
+                        <li class="nav-item"> 
+                        <%= link_to user_connections_path(current_user), class:"nav-link", :action=>'go' do %>
+                          <span class="d-flex flex-column align-items-center">
+                            <span><i class="fas fa-users fa-2x"></i></span><span>My connections</span>
+                          </span>
+                        <%end%>
+                         </li>
+                        <li class="nav-item"> <a class="nav-link" href="#">How it works</a> </li>
+                        <li class="nav-item"> <a class="nav-link " href="#">Pricing</a> </li>
+                    </ul>
+                    <form action="">
+                        <div class="btn btn-primary"> login </div>
+                    </form>
+          </div>
+    </div>
 </nav>
