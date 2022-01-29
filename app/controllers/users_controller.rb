@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
 
   def user_connections
-    @user_following = @user.following
-    @user_follow = @user.followers
+    @user_following = current_user.following
+    @user_follow = current_user.followers
   end
 
   def show
