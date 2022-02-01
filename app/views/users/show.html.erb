@@ -121,16 +121,10 @@
                         <ul class="friend-list clearfix">
 												<% @user_following.each do |following| %>
                             <li>
-                                <a href="#">
-                                    <div class="friend-img"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="" /></div>
-                                    <div class="friend-info">
-                                        <h4>Frans Gebhard</h4>
-                                        <p>944 friends</p>
-                                    </div>
-                                </a>
-																<%= link_to user_path(following), class:"list-group-item list-group-item-action" do %>
+                                
+																<%= link_to user_path(following) do %>
 																	<div class="friend-img"><%= image_tag user_avatar(following)%></div>
-																	<h4>Frans Gebhard</h4>
+																	<div class="friend-info"><h4><%= following.firstname.capitalize %> <%= following.lastname.capitalize %></h4></div>
 																<%end %>
                             </li>
 														<%end%>
