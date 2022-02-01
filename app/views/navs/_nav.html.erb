@@ -30,9 +30,10 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid"> <a class="navbar-brand" href="#">PiciHealth</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="container"> <a class="navbar-brand" href="#">PiciHealth</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
+                        <% if user_signed_in? %>
                         <li class="nav-item"> 
                           <%= link_to root_path, class:"nav-link", :action=>'go' do %>
                             <span class="d-flex flex-column align-items-center">
@@ -47,12 +48,33 @@
                           </span>
                         <%end%>
                          </li>
-                        <li class="nav-item"> <a class="nav-link" href="#">How it works</a> </li>
-                        <li class="nav-item"> <a class="nav-link " href="#">Pricing</a> </li>
+                       
+                        <li class="nav-item">
+                        <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <%= image_tag user_avatar(current_user), class:"border rounded-circle", width:"45"%>
+                        </a>
+                      
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <%= link_to  user_path(current_user),class:"dropdown-item", :action =>'go' do%>
+                            <i class="far fa-address-card"> </i> My profile
+                            <%end%>
+                            <div class="dropdown-divider"></div>
+                            <%= link_to  edit_user_registration_path ,class:"dropdown-item", :action =>'go' do%>
+                             <i class="fas fa-users-cog"> </i> Edit my profile
+                        <%end%>
+                          <%= link_to  destroy_user_session_path ,class:"dropdown-item", :action =>'go' do%>
+                            <i class="fas fa-sign-out-alt"></i>  Logout
+                          <%end%>
+                        </div>
+                      </div>
+                        </li>
                     </ul>
+                    <%else%>
                     <form action="">
                         <div class="btn btn-primary"> login </div>
                     </form>
+                    <%end%>
           </div>
     </div>
 </nav>
