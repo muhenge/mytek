@@ -12,7 +12,8 @@ class UsersController < ApplicationController
 
   def show
     #@user = User.friendly.find(params[:id])
-    
+    @user_following = current_user.following
+    @user_follow = current_user.followers 
     @skill = Skill.new
     @user_skills = @user.skills
     @user_posts = @user.posts.most_recent.limit(5)
