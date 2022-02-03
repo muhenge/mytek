@@ -1,2 +1,32 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<%= render partial: "navs/nav" %>
+
+<div class="container">
+  <% @users.each do |user| %>
+    <%=  %>
+  <%end%>
+</div>
+
+<div class="container">
+    <div class="row p-5">
+      <div class="col">
+      <% @users.each do |user| %>
+        <div class="d-flex justify-content-between  align-items-center p-5 mx-5 border-bottom">
+          <div class="d-flex align-items-center">
+          <%= image_tag user_avatar(user), class:"border rounded-circle", width:"45"%>
+          <div class="">
+            <%= user.firstname %> <%= user.lastname %>
+            <div class="text-muted">@<%= user.username %></div>
+          </div>
+         
+          </div>
+          <div class="">
+            <%= link_to user_path(user), class:"btn btn-colour-1", :action => 'go' do %>
+              View Profile
+            <%end%>
+          </div>
+        </div>
+      <%end%>
+    	</div>
+	</div>
+</div>
+

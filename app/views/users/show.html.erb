@@ -1,85 +1,8 @@
 <%= render partial: "navs/nav" %>
 
-<div class="container pt-5">
-			<div class="row position-sticky top-0 start-0">
-				<div class="col-lg-4">
-					<div class="card">
-						<div class="card-body">
-							<div class="d-flex flex-column align-items-center text-center">
-              <% if @user == current_user %>
-                <%= image_tag user_avatar(current_user), class:"img-responsive rounded-circle border",width:"210"%>
-            <% else %>
-              <%= image_tag user_avatar(@user), class:"img-responsive rounded-circle border shadow",width:"210"%>
-            <% end %>
-								<div class="mt-3">
-									<h4><%= @user.firstname.capitalize %> <%=@user.lastname.capitalize%></h4>
-                    <h6 class="text-center text-muted"><%= @user.username.capitalize %></h6>
-									<p class="text-secondary mb-1"><%= @user.career.field %></p>
-									<span class="text-primary">
-									<%= mail_to "#{@user.email}"%>
-									</span>
-									<div class="my-3"><%=@user.bio%></div>
-                        <% if @user == current_user %>
-                              <% else %>
-                                  <div class="profile-message-btn center-block text-center">
-                                      <% if current_user && current_user.following?(@user) %>
-                                          <%= render 'unfollow' %>
-                                      <% else %>
-                                          <%= render 'follow' %>
-                                      <% end %>
-                                        </div>
-                                    <% end %>
-								</div>
-								<div class="mt-3 text-muted">
-									
-								</div>
-							</div>
-							<hr class="my-4">
-							<div class="">
-							<h5 class="">About Me</h5>
-							<p><%= @user.about.capitalize %></p
-							</div>
-							
-							</div>
-							<div class="text-muted text-center">
-								member since <%= @user.created_at.strftime("%B %Y") %>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-8">
-					<div class="card">
-						<div class="card-body">
-						<h5 class="d-flex align-items-center mb-3"><%= @user.username.capitalize %> Skills</h5>
-						<%@user_skills.each do |skills|%>
-							<p><strong><%= skills.name.capitalize %><strong></p>
-						<div class="progress mb-3" style="height: 20px">
-							<div class="progress-bar bg-success" role="progressbar" style="width: <%= skills.level %>%;" aria-valuenow="<%= skills.level %>" aria-valuemin="0" aria-valuemax="100"><%= skills.level %>%</div>
-						</div>
-						<%end%>
-						</div>
-					</div>
-                </div>
-					
-		
-          
-			      </div>
-						</div>
-					</div>
-			
-		
-					
-					</div>
-				</div>
-				</div>
-			</div>
-	</div>
-
-# --------------------------------------
-
 <div class="container">
 <div id="content" class="content p-0">
-    <div class="profile-header">
+    <div class="">
         <div class="profile-header-cover"></div>
         <div class="profile-header-content">
             <div class="profile-header-img mb-4">
@@ -88,6 +11,8 @@
             <% else %>
               <%= image_tag user_avatar(@user), class:"mb-4"%>
             <% end %>
+           
+			
             </div>
 
             <div class="profile-header-info">
@@ -124,6 +49,8 @@
                     <div class="tab-pane fade active show" id="following">
                        
                         <ul class="friend-list clearfix">
+                        
+			
 							<% @user_following.each do |following| %>
                             <li>
                             
@@ -154,23 +81,20 @@
 
             <div class="col-md-4 hidden-xs hidden-sm">
                 <ul class="profile-info-list">
-                    <li class="title">PERSONAL INFORMATION</li>
-                   
+                    
+                    <li class="title">member since <%= @user.created_at.strftime("%B %Y") %></li>
+                    
                     <li>
                         <div class="field">Skills:</div>
                         <div class="value">
                         <%@user_skills.each do |skills|%>
 							<p><strong><%= skills.name.capitalize %><strong></p>
 						<div class="progress mb-3" style="height: 20px">
-							<div class="progress-bar bg-success" role="progressbar" style="width: <%= skills.level %>%;" aria-valuenow="<%= skills.level %>" aria-valuemin="0" aria-valuemax="100"><%= skills.level %>%</div>
+							<div class="progress-bar bg-dark" role="progressbar" style="width: <%= skills.level %>%;" aria-valuenow="<%= skills.level %>" aria-valuemin="0" aria-valuemax="100"><%= skills.level %>%</div>
 						</div>
 						<%end%>
                         </div>
                     </li>
-                    
-                   
-                   
-                   
                 </ul>
             </div>
         </div>
