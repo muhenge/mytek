@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    #@user = User.friendly.find(params[:id])
+    @user = User.friendly.find(params[:id])
     @user_following = @user.following
     @user_follow = @user.followers 
     @skill = Skill.new

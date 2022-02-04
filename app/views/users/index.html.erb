@@ -9,6 +9,7 @@
 <div class="container">
     <div class="row p-5 my-3">
     <% @users.each do |user| %>
+      <% if current_user != user %>
       <div class="col">
       
         <div class="card">
@@ -20,27 +21,26 @@
                 <%= image_tag user_avatar(user), class:"border rounded-circle", width:"75"%>
               
               <div class="d-flex flex-column flex-wrap ml-2">
+              
+              <span class="font-weight-bold">You</span>
+              
                 <span class="font-weight-bold"><%= user.firstname.capitalize %> <%= user.lastname.capitalize %></span> 
                 <span class="font-weight-bold text-muted">@<%= user.username.downcase %></span>
-                
-              </div>
-             
               
+              </div>
             </div>
             <%end%>
             <div class="">
-                  <% if current_user && current_user.following?(user) %>
-                    <%= render 'unfollow' %>
-                  <% else %>
-                    <%= render 'follow' %>
-                  <% end %>
-                </div>
-          </div>
+              <%= link_to user_path(user), class:"btn btn-colour-1", :action => 'go' do %>
+                <i class="far fa-address-card"></i> View profile
+              <%end%>
+            </div>
          
           </div>
           
         </div>
       </div>
+      <%end%>
     <%end%>
     
 	</div>
