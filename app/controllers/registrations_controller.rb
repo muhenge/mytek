@@ -20,7 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(resource)
     #redirect_to [current_account, resource]
-    user_path(current_user)
+    user_path(@user)
   end
 
   def configure_account_update_params
@@ -28,6 +28,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:username, :firstname, :lastname, :career_id, :about, :bio)
+    params.require(:user).permit(:username, :firstname, :lastname, :career_id, :about, :bio,:slug)
   end
 end
