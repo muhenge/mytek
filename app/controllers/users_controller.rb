@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    
   end
 
   def user_connections
@@ -24,10 +23,10 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:avatar,:firstname, :avatar, :lastname, :email, :username, :about, :bio, :career_id, skills:[])
+    params.require(:user).permit(:avatar,:firstname, :avatar,:slug, :lastname, :email, :username, :about, :bio, :career_id, skills:[])
   end
 
   def set_user
-    @user = params[:id] ? User.friendly.find(params[:id]) : current_user
+    @user = User.friendly.find_by_slug(params[:slug])
   end
 end

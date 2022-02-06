@@ -1,9 +1,11 @@
+<%= render partial: "navs/nav" %>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8">
         <% @users.each do |user| %>
           <% if current_user != user %>
-            <%= link_to user_path(user), class:"text-dark" , :action => 'go' do %>
+            <%=  link_to user_path(user), class:"text-dark" , :action => 'go' do %>
               <div class="card shadow-none" style="width: 18rem;">
                 <%= image_tag user_avatar(user), class:"card-img-top", width:"75"%>
               <div class="card-body">
