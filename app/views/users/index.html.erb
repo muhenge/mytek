@@ -1,48 +1,24 @@
-<%= render partial: "navs/nav" %>
-
 <div class="container">
-  <% @users.each do |user| %>
-    <%=  %>
-  <%end%>
-</div>
-
-<div class="container">
-    <div class="row p-5 my-3">
-    <% @users.each do |user| %>
-      <% if current_user != user %>
-      <div class="col">
-      
-        <div class="card">
-          <div class="card-body">
-          <div class="d-flex flex-row justify-content-between align-items-center">
-          <%= link_to user_path(user), class:"nav-link", :action => 'go' do %>
-            <div class="d-flex flex-row align-items-center">
-            
-                <%= image_tag user_avatar(user), class:"border rounded-circle", width:"75"%>
-              
-              <div class="d-flex flex-column flex-wrap ml-2">
-              
-              <span class="font-weight-bold">You</span>
-              
-                <span class="font-weight-bold"><%= user.firstname.capitalize %> <%= user.lastname.capitalize %></span> 
-                <span class="font-weight-bold text-muted">@<%= user.username.downcase %></span>
-              
-              </div>
-            </div>
-            <%end%>
-            <div class="">
-              <%= link_to user_path(user), class:"btn btn-colour-1", :action => 'go' do %>
-                <i class="far fa-address-card"></i> View profile
-              <%end%>
-            </div>
-         
-          </div>
-          
-        </div>
-      </div>
-      <%end%>
-    <%end%>
+    <div class="row">
+        <div class="col-md-8">
+        <% @users.each do |user| %>
+          <% if current_user != user %>
+            <%= link_to user_path(user), class:"text-dark" , :action => 'go' do %>
+              <div class="card shadow-none" style="width: 18rem;">
+                <%= image_tag user_avatar(user), class:"card-img-top", width:"75"%>
+              <div class="card-body">
+              <h5 class="cardarkd-title text-center">
     
+                <%= user.firstname.capitalize %> <%= user.lastname.capitalize %></h5>
+                <div class="text-center text-muted" > <%= user.career.field%> </div>
+              <p class="card-text py-3">
+                <%= user.about.capitalize %>
+              </p>
+            </div>
+          </div>
+          <%end%>
+          <%end%>
+        <%end%>
+    	</div>
 	</div>
 </div>
-
