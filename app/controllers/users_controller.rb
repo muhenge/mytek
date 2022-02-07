@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.friendly.find(params[:id])
     @user_following = @user.following
     @user_follow = @user.followers 
     @skill = Skill.new
@@ -27,6 +26,6 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = params[:id] ? User.friendly.find(params[:id]) : User.friendly.find_by_slug(params[:slug])
+    @user = params[:id] ? User.friendly.find(params[:id]) : User.friendly.find_by_slug(params[:slug]) || current_user
   end
 end

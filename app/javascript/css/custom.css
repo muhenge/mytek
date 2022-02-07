@@ -38,6 +38,14 @@ body {
     border-color: #2a8959;
 }
 
+.post {
+    border-radius: 5px;
+    border: 2px solid #e6e6e6;
+    color: #000;
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
 .btn-colour-1 {
     color: #fff;
     background-color: #004e64 !important;
