@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  attr_accessor :login
   acts_as_voter
 
   extend FriendlyId
@@ -27,5 +26,14 @@ class User < ApplicationRecord
 
   def following?(user)
     following.include?(user)
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    condition = warden_conditions.dup
+    if login = condition.delete(:login)
+      where(condition.to_hash).where("lower(username)= :value OR lower(email) = :value", value: login.downcase).first
+    else
+      where(condition.to_hash).first
+    end
   end
 end

@@ -7,5 +7,4 @@ class Post < ApplicationRecord
   has_many :skills
   has_many :comments
   scope :most_recent, -> { order(created_at: :desc) }
-  
 end

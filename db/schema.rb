@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_06_153738) do
+ActiveRecord::Schema.define(version: 2022_02_07_162113) do
 
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 2022_02_06_153738) do
     t.float "cached_weighted_average", default: 0.0
     t.integer "comment_id"
     t.integer "skill_id"
+    t.string "slug"
+    t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 
   create_table "relationships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

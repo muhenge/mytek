@@ -9,14 +9,12 @@ class PostsController < ApplicationController
     @user_posts = current_user.posts.most_recent
     @career_post = current_user.career.posts
     @comments = current_user.comments.most_recent
-    # @post_comments = @post.comments.most_recent.limit(5)
     @comments_new = Comment.new
     @posts = Post.most_recent
   end
 
   def show
-   @post_comments = @post.comments.includes(:user).most_recent
-
+   @post_comments = @post.comments.includes(:user).most_recent.limit(5)
   end
 
   def create
